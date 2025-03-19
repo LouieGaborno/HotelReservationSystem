@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HotelReservationSystem.Models.Booking>
+
+@{
+    ViewData["Title"] = "Manage Guests";
+}
+
+<h2 class="text-2xl font-bold mb-4">Manage Guests</h2>
+<p class="text-gray-700 mb-4">View and manage guest details and stay duration.</p>
+
+<table class="table-auto w-full border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border px-4 py-2">Guest Name</th>
+            <th class="border px-4 py-2">Email</th>
+            <th class="border px-4 py-2">Check-in Date</th>
+            <th class="border px-4 py-2">Check-out Date</th>
+            <th class="border px-4 py-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null || !Model.Any())
+        {
+            <tr>
+                <td colspan="5" class="text-center text-gray-500">No bookings available.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var booking in Model)
+            {
+                <tr>
+                    <td class="border px-4 py-2">@(booking.User?.Name ?? "Unknown Guest")</td>
+                    <td class="border px-4 py-2">@(booking.User?.Email ?? "No Email Available")</td>
+                    <td class="border px-4 py-2">@booking.CheckInDate.ToString("yyyy-MM-dd")</td>
+                    <td class="border px-4 py-2">@booking.CheckOutDate.ToString("yyyy-MM-dd")</td>
+                    <td class="border px-4 py-2">
+                        <a href="/Guest/Edit/@booking.Id" class="text-blue-500 hover:underline">Edit</a> |
+                        <a href="/Guest/Delete/@booking.Id" class="text-red-500 hover:underline">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

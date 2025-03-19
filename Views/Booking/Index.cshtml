@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HotelReservationSystem.Models.Booking>
+
+<h2 style="font-size: 32px; font-weight: bold; color: #1f2937; margin-bottom: 20px;">Booking List</h2>
+<p><a asp-action="Create" class="btn" style="background-color: #10b981; color: white; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: background-color 0.3s;">Add New Booking</a></p>
+
+<div class="table-responsive" style="margin-top: 20px;">
+    <table class="table table-bordered table-hover table-striped" style="border-radius: 8px; overflow: hidden;">
+        <thead class="table-dark" style="background-color: #1f2937; color: white;">
+            <tr>
+                <th style="padding: 12px; text-align: left;">User</th>
+                <th style="padding: 12px; text-align: left;">Room</th>
+                <th style="padding: 12px; text-align: left;">Check-In</th>
+                <th style="padding: 12px; text-align: left;">Check-Out</th>
+                <th style="padding: 12px; text-align: center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="background-color: #ffffff; transition: background-color 0.3s;">
+                    <td style="padding: 12px;">@item.User.Name</td>
+                    <td style="padding: 12px;">@item.Room.RoomNumber</td>
+                    <td style="padding: 12px;">@item.CheckInDate.ToShortDateString()</td>
+                    <td style="padding: 12px;">@item.CheckOutDate.ToShortDateString()</td>
+                    <td class="text-center" style="padding: 12px;">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn" style="background-color: #fbbf24; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; text-decoration: none; margin-right: 10px; transition: background-color 0.3s;">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn" style="background-color: #ef4444; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: background-color 0.3s;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

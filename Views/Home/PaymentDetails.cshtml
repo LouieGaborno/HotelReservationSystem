@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Payment Details";
+}
+
+<h2 class="text-2xl font-bold mb-4">Payment Details</h2>
+<p class="text-gray-700 mb-4">View all payment transactions.</p>
+
+<table class="table-auto w-full border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border px-4 py-2">Guest Name</th>
+            <th class="border px-4 py-2">Room Number</th>
+            <th class="border px-4 py-2">Amount</th>
+            <th class="border px-4 py-2">Payment Date</th>
+            <th class="border px-4 py-2">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Sample data, replace with dynamic data later *@
+        <tr>
+            <td class="border px-4 py-2">John Doe</td>
+            <td class="border px-4 py-2">101</td>
+            <td class="border px-4 py-2">$500</td>
+            <td class="border px-4 py-2">2025-03-12</td>
+            <td class="border px-4 py-2 text-green-500">Paid</td>
+        </tr>
+    </tbody>
+</table>

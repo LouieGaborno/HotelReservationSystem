@@ -1,0 +1,40 @@
+﻿@model HotelReservationSystem.Models.Booking
+
+<h2 style="font-size: 32px; font-weight: bold; color: #1f2937; margin-bottom: 20px;">Create Booking</h2>
+
+<form asp-action="Create" method="post" class="row g-3 needs-validation" novalidate style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="col-md-6" style="margin-bottom: 15px;">
+        <label for="UserId" class="form-label" style="font-size: 16px; color: #1f2937;">Select User</label>
+        <select asp-for="UserId" class="form-select" style="padding: 10px; border-radius: 8px; border: 1px solid #d1d5db;"
+                asp-items="@(new SelectList((IEnumerable<HotelReservationSystem.Models.User>)ViewData["Users"], "Id", "Name"))" required>
+            <option value="">-- Select User --</option>
+        </select>
+        <span asp-validation-for="UserId" class="text-danger" style="font-size: 14px; color: #ef4444;"></span>
+    </div>
+
+    <div class="col-md-6" style="margin-bottom: 15px;">
+        <label for="RoomId" class="form-label" style="font-size: 16px; color: #1f2937;">Select Room</label>
+        <select asp-for="RoomId" class="form-select" style="padding: 10px; border-radius: 8px; border: 1px solid #d1d5db;"
+                asp-items="@(new SelectList((IEnumerable<HotelReservationSystem.Models.Room>)ViewData["Rooms"], "Id", "RoomNumber"))" required>
+            <option value="">-- Select Room --</option>
+        </select>
+        <span asp-validation-for="RoomId" class="text-danger" style="font-size: 14px; color: #ef4444;"></span>
+    </div>
+
+    <div class="col-md-6" style="margin-bottom: 15px;">
+        <label for="CheckInDate" class="form-label" style="font-size: 16px; color: #1f2937;">Check-In Date</label>
+        <input asp-for="CheckInDate" class="form-control" type="date" style="padding: 10px; border-radius: 8px; border: 1px solid #d1d5db;" required />
+        <span asp-validation-for="CheckInDate" class="text-danger" style="font-size: 14px; color: #ef4444;"></span>
+    </div>
+
+    <div class="col-md-6" style="margin-bottom: 15px;">
+        <label for="CheckOutDate" class="form-label" style="font-size: 16px; color: #1f2937;">Check-Out Date</label>
+        <input asp-for="CheckOutDate" class="form-control" type="date" style="padding: 10px; border-radius: 8px; border: 1px solid #d1d5db;" required />
+        <span asp-validation-for="CheckOutDate" class="text-danger" style="font-size: 14px; color: #ef4444;"></span>
+    </div>
+
+    <div class="col-12 mt-3" style="display: flex; gap: 15px;">
+        <button type="submit" class="btn" style="background-color: #22c55e; color: white; padding: 12px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">Save Booking</button>
+        <a asp-action="Index" class="btn" style="background-color: #e5e7eb; color: #1f2937; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: background-color 0.3s;">Cancel</a>
+    </div>
+</form>

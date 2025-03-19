@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<!-- Top Navigation Bar -->
+<nav style="background-color: #3b82f6; padding: 16px; margin-bottom: 16px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="color: white; font-size: 24px; font-weight: bold;">Admin Dashboard</h2>
+        <ul style="display: flex; gap: 16px; padding: 0; margin: 0; list-style: none;">
+            <li>
+                <a href="/User/Index" style="display: inline-block; padding: 10px 20px; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                    Manage Users
+                </a>
+            </li>
+            <li>
+                <a href="/Room/Index" style="display: inline-block; padding: 10px 20px; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                    Manage Rooms
+                </a>
+            </li>
+            <li>
+                <a href="/Booking/Index" style="display: inline-block; padding: 10px 20px; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                    Manage Bookings
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Admin Panel Content -->
+<div style="padding: 16px; background-color: white; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <p style="color: #4b5563; margin-bottom: 16px;">Manage guests, edit rooms, and check payment details here.</p>
+
+    <ul style="display: flex; flex-direction: column; gap: 16px; padding: 0; margin: 0; list-style: none;">
+        <li>
+            <a href="/Home/ManageGuests" style="display: inline-block; padding: 10px 20px; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                Manage Guests & Stay Duration
+            </a>
+        </li>
+        <li>
+            <a href="/Home/ManageRooms" style="display: inline-block; padding: 10px 20px; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                Edit Room Availability & Details
+            </a>
+        </li>
+        <li>
+            <a href="/Home/PaymentDetails" style="display: inline-block; padding: 10px 20px; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                View Payment Details
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Hover Effect -->
+<style>
+    a:hover {
+        background-color: #3b82f6;
+        color: white;
+        border-color: #3b82f6;
+        text-decoration: none;
+    }
+</style>
